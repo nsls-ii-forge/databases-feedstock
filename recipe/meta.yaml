@@ -1,0 +1,41 @@
+{% set name = "databases" %}
+{% set version = "0.4.1" %}
+{% set sha256 = "799febb8fc0ad1e9ac47b5510b91e971d35be205aa99b9a00b3811b4cb5e5254" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: true  # [py<36]
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - aiocontextvars  # [py<37]
+    - aiomysql
+    - aiosqlite
+    - asyncpg
+    - sqlalchemy
+
+test:
+  imports:
+    - databases
+
+about:
+  home: https://github.com/encode/databases
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.md
+  summary: Async database support for Python
+  doc_url: https://github.com/encode/databases/
+  dev_url: https://github.com/encode/databases/
