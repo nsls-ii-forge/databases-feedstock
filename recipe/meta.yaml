@@ -1,6 +1,6 @@
 {% set name = "databases" %}
-{% set version = "0.4.3" %}
-{% set sha256 = "1521db7f6d3c581ff81b3552e130b27a13aefea2a57295e65738081831137afc" %}
+{% set version = "0.5.3" %}
+{% set sha256 = "b69d74ee0b47fa30bb6e76db0c58da998e973393259d29215d8fb29352162bd6" %}
 
 package:
   name: {{ name|lower }}
